@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="no"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bli dommer – Joffencup 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --blue:#123B6D; --green:#58B947; --red:#E94B4B; --purple:#7A4DBA; --sky:#3AA7E3;
+      --dark:#2F343B; --light:#F4F6F8; --white:#FFFFFF;
+      --primary:var(--blue); --accent:var(--green);
+      --off:var(--light); --text:var(--dark); --muted:#556070; --border:#D8E2EE; --green-light:#EAF6E7;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:"Source Sans 3","Open Sans",Arial,sans-serif; background:var(--white); color:var(--text); line-height:1.6; overflow-x:hidden; }
+    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
+    .nav-logo a { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); text-decoration:none; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+    .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; transition:color .2s; font-family:"Source Sans 3","Open Sans",Arial,sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--blue); color:#fff; font-family:"Montserrat",Arial,sans-serif; font-size:.82rem; font-weight:700; text-decoration:none; padding:.55rem 1.3rem; border-radius:6px; }
+    .nav-cta:hover { background:#0e2f57; }
+    .page-hero { background:var(--light); border-bottom:1px solid var(--border); padding:4rem 2.5rem 3rem; }
+    .page-hero .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
+    .page-hero .section-tag::before { content:""; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
+    .page-hero h1 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2.8rem,6vw,5rem); line-height:.95; color:var(--blue); }
+    .page-hero p { margin-top:1rem; font-size:1.05rem; color:var(--muted); max-width:540px; line-height:1.75; }
+    section { padding:5rem 2.5rem; }
+    .container { max-width:1060px; margin:0 auto; }
+    .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
+    .section-tag::before { content:""; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
+    .section-title { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:.97; color:var(--blue); }
+    .btn-primary { display:inline-block; background:var(--blue); color:#fff; font-family:"Montserrat",Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.8rem; border-radius:6px; transition:background .2s, transform .15s; }
+    .btn-primary:hover { background:#0e2f57; transform:translateY(-1px); }
+    .btn-white { display:inline-block; background:#fff; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 2rem; border-radius:6px; }
+    .btn-white:hover { box-shadow:0 8px 24px rgba(0,0,0,.15); transform:translateY(-2px); }
+    footer { background:var(--blue); color:rgba(255,255,255,.6); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+    .footer-logo { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1.3rem; text-transform:uppercase; letter-spacing:.04em; color:#fff; }
+    .footer-logo span { color:var(--green); }
+    footer p { font-size:.8rem; line-height:1.9; }
+    footer a { color:var(--green); text-decoration:none; }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media(max-width:780px) { nav .nav-links, nav .nav-cta { display:none; } footer { flex-direction:column; text-align:center; } section { padding:3.5rem 1.5rem; } .page-hero { padding:3rem 1.5rem 2rem; } }
+    .page-hero-blue { background:var(--blue); padding:5rem 2.5rem 4rem; }
+    .page-hero-blue .section-tag { color:rgba(255,255,255,.7); font-family:"Montserrat",Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; display:inline-flex; align-items:center; gap:.5rem; margin-bottom:1rem; }
+    .page-hero-blue .section-tag::before { content:""; display:block; width:18px; height:2px; background:rgba(255,255,255,.5); border-radius:2px; }
+    .page-hero-blue h1 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2.8rem,6vw,5rem); line-height:.95; color:#fff; }
+    .page-hero-blue p { margin-top:1rem; font-size:1.05rem; color:rgba(255,255,255,.8); max-width:540px; line-height:1.75; }
+
+    .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .intro-img img { width:100%; border-radius:10px; box-shadow:0 16px 48px rgba(18,59,109,.12); }
+    .intro-text h2 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(1.8rem,3.5vw,2.5rem); line-height:.97; color:var(--blue); margin-bottom:1.2rem; }
+    .intro-text p { font-size:1rem; color:var(--muted); line-height:1.8; margin-bottom:1rem; }
+
+    .perks { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:3rem; }
+    .perk { background:var(--white); border:1.5px solid var(--border); border-radius:10px; padding:1.8rem 1.6rem; text-align:center; border-top:4px solid var(--green); transition:box-shadow .25s; }
+    .perk:hover { box-shadow:0 4px 20px rgba(18,59,109,.08); }
+    .perk-icon { font-size:2rem; margin-bottom:.8rem; }
+    .perk h3 { font-family:"Montserrat",Arial,sans-serif; font-weight:700; font-size:.9rem; margin-bottom:.4rem; color:var(--blue); }
+    .perk p { font-size:.85rem; color:var(--muted); line-height:1.55; }
+
+    .praktisk-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2.5rem; }
+    .praktisk-card { background:var(--light); border:1.5px solid var(--border); border-radius:10px; padding:1.8rem 2rem; }
+    .pk-header { display:flex; gap:.8rem; align-items:center; margin-bottom:1rem; }
+    .pk-icon { background:var(--blue); border-radius:8px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .praktisk-card h3 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1rem; text-transform:uppercase; letter-spacing:.04em; color:var(--blue); }
+    .praktisk-card ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .praktisk-card li { display:flex; gap:.7rem; font-size:.9rem; color:var(--text); line-height:1.5; }
+    .praktisk-card li::before { content:"→"; color:var(--blue); font-weight:700; flex-shrink:0; }
+
+    .prev-dommere { margin-top:3rem; }
+    .prev-dommere h3 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1.1rem; text-transform:uppercase; color:var(--blue); margin-bottom:1.2rem; }
+    .dommer-chips { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .chip { background:var(--white); border:1.5px solid var(--border); border-radius:20px; padding:.4rem 1rem; font-size:.82rem; font-weight:500; color:var(--text); }
+
+    .cta-box { background:var(--blue); border-radius:14px; padding:3.5rem; text-align:center; margin-top:2rem; }
+    .cta-box h2 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; margin-bottom:.8rem; }
+    .cta-box p { font-size:1rem; color:rgba(255,255,255,.8); max-width:480px; margin:0 auto 2rem; line-height:1.7; }
+
+    @media(max-width:780px) { .intro-grid, .praktisk-grid { grid-template-columns:1fr; gap:2rem; } .perks { grid-template-columns:1fr 1fr; } .cta-box { padding:2.5rem 1.5rem; } }
+</style></head><body>
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="height:48px;width:auto;display:block;"></a></div>
+  <ul class="nav-links">
+    <li><a href="regler.html">Spilleregler</a></li>
+    <li><a href="dommere.html" class="active">Bli dommer</a></li>
+  </ul>
+  <a href="index.html#pamelding" class="nav-cta">Meld på lag →</a>
+</nav>
+<div class="page-hero-blue"><div class="container">
+  <div class="section-tag">29. august 2026 · Lillesand</div>
+  <h1>Vil du være dommer på Joffencup?</h1>
+  <p>Vi trenger engasjerte dommere som vil bidra til en god dag for alle. Du trenger ikke dommerlisens — bare lyst til å hjelpe og glad i fotball.</p>
+</div></div>
+
+<section style="background:var(--white)"><div class="container">
+  <div class="intro-grid">
+    <div class="intro-img reveal"><img src="https://drive.google.com/thumbnail?id=1nFJDzSEF7rMPABn0fMvytvJ8jHJ7RS0X&sz=w900" alt="Dommere på Joffencup"/></div>
+    <div class="intro-text reveal">
+      <div class="section-tag">Hvorfor bli dommer?</div>
+      <h2>En viktig rolle i Joffens ånd</h2>
+      <p>Uten dommere, ingen cup. Det er dommerne som sørger for at kampene glir greit og at alle kan fokusere på det som betyr noe: <strong>å ha det gøy på banen</strong>.</p>
+      <p>Joffencup er en breddecup — her handler det om å skape god stemning og håndtere situasjoner med sunn fornuft.</p>
+      <p>Du trenger ikke dommerkurs eller erfaring. Det viktigste er at du er til stede, rettferdig og i godt humør.</p>
+    </div>
+  </div>
+</div></section>
+
+<section style="background:var(--light)"><div class="container">
+  <div class="section-tag reveal">Hva får du som dommer?</div>
+  <h2 class="section-title reveal">Dette kan du se frem til</h2>
+  <div class="perks">
+    <div class="perk reveal"><div class="perk-icon">🍽️</div><h3>Middag på banketten</h3><p>Alle dommere inviteres til afterparty og bankett etter cupen.</p></div>
+    <div class="perk reveal"><div class="perk-icon">⚽</div><h3>Tett på fotballen</h3><p>En hel dag med fotball i Joffens ånd — på innsiden av det hele.</p></div>
+    <div class="perk reveal"><div class="perk-icon">🤝</div><h3>Del av fellesskapet</h3><p>Du bidrar direkte til at Joffencup blir en dag alle husker.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--white)"><div class="container">
+  <div class="section-tag reveal">Praktisk info</div>
+  <h2 class="section-title reveal">Alt du trenger å vite</h2>
+  <div class="praktisk-grid">
+    <div class="praktisk-card reveal">
+      <div class="pk-header"><div class="pk-icon">📍</div><h3>Oppmøte</h3></div>
+      <ul>
+        <li>Møt opp i god tid før din første kamp og meld deg i sekretariatet</li>
+        <li>Det er ikke felles oppmøte for dommere</li>
+        <li>Turneringsledelsen er tilgjengelig for spørsmål hele dagen</li>
+      </ul>
+    </div>
+    <div class="praktisk-card reveal">
+      <div class="pk-header"><div class="pk-icon">⏱️</div><h3>Kampformat</h3></div>
+      <ul>
+        <li>Gruppespill: 1 × 12 min løpende tid — ingen tillegg</li>
+        <li>Kampene blåses i gang felles fra sekretariatet</li>
+        <li>Sluttspill: 3 min sudden death, deretter straffespark</li>
+      </ul>
+    </div>
+    <div class="praktisk-card reveal">
+      <div class="pk-header"><div class="pk-icon">📋</div><h3>Resultater</h3></div>
+      <ul>
+        <li>Lever resultater til dommerbordet etter hver kamp</li>
+        <li>Fyll ut kamprapport som leveres i sekretariatet</li>
+      </ul>
+    </div>
+    <div class="praktisk-card reveal">
+      <div class="pk-header"><div class="pk-icon">🟥</div><h3>Kort og fair play</h3></div>
+      <ul>
+        <li>Rødt kort = utvist resten av kampen</li>
+        <li>Tøffe taklinger og albuer gir direkte rødt</li>
+        <li>Bruk skjønn — dette er en breddecup</li>
+      </ul>
+    </div>
+  </div>
+  <div class="prev-dommere reveal">
+    <h3>Trofaste dommere gjennom årene</h3>
+    <div class="dommer-chips">
+      <span class="chip">Anders Mollestad</span>
+      <span class="chip">Annelinn Aamlid Solstad</span>
+      <span class="chip">Atle Andreassen</span>
+      <span class="chip">Cristian Graziano</span>
+      <span class="chip">Even Molithon</span>
+      <span class="chip">Harald Martinius Githmark Boge</span>
+      <span class="chip">Herman Nilsen Fossli</span>
+      <span class="chip">Håvard Juliebø</span>
+      <span class="chip">Jonathan Walle</span>
+      <span class="chip">Kåre-Ivar Ohrvik</span>
+      <span class="chip">Lars Holmer Hoven</span>
+      <span class="chip">Leif Arne Johansen</span>
+      <span class="chip">Ling Khui Shing</span>
+      <span class="chip">Magne Bjørkestøl</span>
+      <span class="chip">Marcel Ngoie</span>
+      <span class="chip">Monica Rith</span>
+      <span class="chip">Rolf Aage Børresen</span>
+      <span class="chip">Roy Kenneth Jensveen</span>
+      <span class="chip">Sebastian Ohrvik</span>
+      <span class="chip">Sturla Meyer</span>
+      <span class="chip">Syvert Gulbrandsen</span>
+      <span class="chip">Tilde Voje Jørgensen</span>
+      <span class="chip">Tina-Sofie Larsen</span>
+      <span class="chip">Tobias Aanesen</span>
+      <span class="chip">Wael Achour</span>
+      <span class="chip">William Moyle</span>
+    </div>
+  </div>
+</div></section>
+
+<section style="background:var(--light)"><div class="container">
+  <div class="cta-box reveal">
+    <h2>Klar til å ta fløyten?</h2>
+    <p>Ta kontakt med oss så setter vi deg opp med kamper. Vi er takknemlige for alle som stiller opp!</p>
+    <a href="mailto:joffenfondet@gmail.com?subject=Dommer Joffencup 2026" class="btn-white">Send oss en e-post →</a>
+  </div>
+</div></section>
+
+<footer><div class="footer-logo"><a href="https://www.joffenfondet.org" target="_blank"><img src="Fondslogo_stor.jpg" alt="Joffenfondet.org" style="height:52px;width:auto;display:block;border-radius:4px;"></a></div>
+<p>Arrangert av Joffenfondet · Org.nr 922 343 853<br><a href="https://www.joffenfondet.org">joffenfondet.org</a> · <a href="mailto:joffenfondet@gmail.com">joffenfondet@gmail.com</a></p>
+<p style="font-size:.75rem;opacity:.4">Med kjærlighet til Joffen ❤️</p></footer>
+<script>const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+</body></html>

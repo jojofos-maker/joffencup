@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="no"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Spilleregler – Joffencup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --blue:#123B6D; --green:#58B947; --red:#E94B4B; --purple:#7A4DBA; --sky:#3AA7E3;
+      --dark:#2F343B; --light:#F4F6F8; --white:#FFFFFF;
+      --primary:var(--blue); --accent:var(--green);
+      --off:var(--light); --text:var(--dark); --muted:#556070; --border:#D8E2EE; --green-light:#EAF6E7;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:"Source Sans 3","Open Sans",Arial,sans-serif; background:var(--white); color:var(--text); line-height:1.6; overflow-x:hidden; }
+    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
+    .nav-logo a { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); text-decoration:none; }
+    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+    .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; transition:color .2s; font-family:"Source Sans 3","Open Sans",Arial,sans-serif; }
+    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
+    .nav-cta { background:var(--blue); color:#fff; font-family:"Montserrat",Arial,sans-serif; font-size:.82rem; font-weight:700; text-decoration:none; padding:.55rem 1.3rem; border-radius:6px; }
+    .nav-cta:hover { background:#0e2f57; }
+    .page-hero { background:var(--light); border-bottom:1px solid var(--border); padding:4rem 2.5rem 3rem; }
+    .page-hero .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
+    .page-hero .section-tag::before { content:""; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
+    .page-hero h1 { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2.8rem,6vw,5rem); line-height:.95; color:var(--blue); }
+    .page-hero p { margin-top:1rem; font-size:1.05rem; color:var(--muted); max-width:540px; line-height:1.75; }
+    section { padding:5rem 2.5rem; }
+    .container { max-width:1060px; margin:0 auto; }
+    .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
+    .section-tag::before { content:""; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
+    .section-title { font-family:"Montserrat",Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:.97; color:var(--blue); }
+    .btn-primary { display:inline-block; background:var(--blue); color:#fff; font-family:"Montserrat",Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.8rem; border-radius:6px; transition:background .2s, transform .15s; }
+    .btn-primary:hover { background:#0e2f57; transform:translateY(-1px); }
+    .btn-white { display:inline-block; background:#fff; color:var(--blue); font-family:"Montserrat",Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 2rem; border-radius:6px; }
+    .btn-white:hover { box-shadow:0 8px 24px rgba(0,0,0,.15); transform:translateY(-2px); }
+    footer { background:var(--blue); color:rgba(255,255,255,.6); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
+    .footer-logo { font-family:"Montserrat",Arial,sans-serif; font-weight:900; font-size:1.3rem; text-transform:uppercase; letter-spacing:.04em; color:#fff; }
+    .footer-logo span { color:var(--green); }
+    footer p { font-size:.8rem; line-height:1.9; }
+    footer a { color:var(--green); text-decoration:none; }
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media(max-width:780px) { nav .nav-links, nav .nav-cta { display:none; } footer { flex-direction:column; text-align:center; } section { padding:3.5rem 1.5rem; } .page-hero { padding:3rem 1.5rem 2rem; } }
+
+    /* Regler – clean list layout */
+    .regler-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      max-width: 720px;
+    }
+
+    .regel-card {
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--blue);
+      border-radius: 0 10px 10px 0;
+      padding: 1.8rem 2.2rem;
+    }
+
+    .regel-header {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin-bottom: 1.2rem;
+    }
+    .regel-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .regel-card h3 {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--blue);
+    }
+
+    .regel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      padding-left: 3rem;
+    }
+    .regel-list li {
+      font-size: .97rem;
+      line-height: 1.6;
+      color: var(--text);
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    .regel-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .hl { color: var(--blue); font-weight: 700; }
+
+    .fairplay-box {
+      max-width: 720px;
+      background: var(--blue);
+      border-radius: 10px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .fairplay-box .fp-icon { font-size: 2rem; flex-shrink: 0; }
+    .fairplay-box h3 {
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 900; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: #fff; margin-bottom: .6rem;
+    }
+    .fairplay-box p { font-size: .97rem; color: rgba(255,255,255,.85); line-height: 1.7; }
+
+    @media(max-width:600px) {
+      .regel-list { padding-left: 1.2rem; }
+      .fairplay-box { flex-direction: column; gap: 1rem; }
+    }
+</style></head><body>
+
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="height:48px;width:auto;display:block;"></a></div>
+  <ul class="nav-links">
+    <li><a href="regler.html" class="active">Spilleregler</a></li>
+    <li><a href="dommere.html">Bli dommer</a></li>
+  </ul>
+  <a href="index.html#pamelding" class="nav-cta">Meld på lag →</a>
+</nav>
+
+<div class="page-hero"><div class="container">
+  <div class="section-tag">Turneringsregler</div>
+  <h1>Spilleregler</h1>
+  <p>Alt du trenger å vite før du trer inn på banen. Husk: dette er Joffencup — det skal være gøy!</p>
+</div></div>
+
+<section style="background:var(--white)"><div class="container">
+
+  <div class="regler-stack">
+
+    <div class="regel-card reveal">
+      <div class="regel-header">
+        <div class="regel-icon">⏱️</div>
+        <h3>Spilletid</h3>
+      </div>
+      <ul class="regel-list">
+        <li>Gruppespill: <span class="hl">1 × 12 minutter</span> løpende tid — ingen tillegg</li>
+        <li>Kampene blåses i gang felles fra sekretariatet</li>
+        <li>Sluttspill ved uavgjort: <span class="hl">3 minutter sudden death</span></li>
+        <li>Fortsatt likt: straffespark med <span class="hl">5 spillere</span>, deretter 1 og 1 til det er avgjort</li>
+      </ul>
+    </div>
+
+    <div class="regel-card reveal">
+      <div class="regel-header">
+        <div class="regel-icon">👥</div>
+        <h3>Lag og spillere</h3>
+      </div>
+      <ul class="regel-list">
+        <li><span class="hl">5 spillere</span> på banen inkludert keeper</li>
+        <li>Minimum <span class="hl">3 spillere</span> for å gjennomføre kampen</li>
+        <li>Frie bytter inn og ut ved midtlinjen når som helst</li>
+        <li><span class="hl">Mix Hobby:</span> minst én dame på banen til enhver tid</li>
+        <li>Aldersgrense: <span class="hl">18 år</span> — unntak tillates, men <span class="hl">gjennomsnittsalderen på laget må være over 18</span>. Rene underårige lag tillates ikke</li>
+      </ul>
+    </div>
+
+    <div class="regel-card reveal">
+      <div class="regel-header">
+        <div class="regel-icon">⚽</div>
+        <h3>Tekniske regler</h3>
+      </div>
+      <ul class="regel-list">
+        <li>Innkast erstattes av <span class="hl">innspark fra bakken</span> — motstander minst 3 meter unna</li>
+        <li>Laget som står <span class="hl">først i kampoppsettet</span> starter med ballen</li>
+        <li>Alle frispark er <span class="hl">indirekte</span>, unntatt straffespark</li>
+        <li>Straffe tas fra <span class="hl">8-meteren</span></li>
+      </ul>
+    </div>
+
+    <div class="regel-card reveal">
+      <div class="regel-header">
+        <div class="regel-icon">🧤</div>
+        <h3>Keeper</h3>
+      </div>
+      <ul class="regel-list">
+        <li>Kan bruke hendene innenfor <span class="hl">eget målfelt</span> — bruk skjønn, ca. 6 meter</li>
+        <li>Kan <strong>ikke</strong> ta med hendene på bevisst tilbakespill</li>
+        <li>Setter ballen i spill med <span class="hl">kast eller spark fra bakken</span></li>
+      </ul>
+    </div>
+
+    <div class="regel-card reveal">
+      <div class="regel-header">
+        <div class="regel-icon">🟥</div>
+        <h3>Kort og straff</h3>
+      </div>
+      <ul class="regel-list">
+        <li><span class="hl">Rødt kort</span> medfører utvisning resten av kampen — laget spiller videre med én spiller mindre</li>
+        <li>Tøffe taklinger, albuer og usportslig oppførsel gir direkte rødt</li>
+        <li>Dommers avgjørelse er endelig på banen</li>
+      </ul>
+    </div>
+
+    <div class="fairplay-box reveal">
+      <div class="fp-icon">❤️</div>
+      <div>
+        <h3>Fair Play — viktigst av alt</h3>
+        <p>Joffencup er en breddecup i Joffens ånd — det skal være gøy for spillere, dommere og publikum. Vis respekt for motstandere og dommere, og husk hvorfor vi er her.</p>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<footer><div class="footer-logo"><a href="https://www.joffenfondet.org" target="_blank"><img src="Fondslogo_stor.jpg" alt="Joffenfondet.org" style="height:52px;width:auto;display:block;border-radius:4px;"></a></div>
+<p>Arrangert av Joffenfondet · Org.nr 922 343 853<br>
+<a href="https://www.joffenfondet.org">joffenfondet.org</a> · <a href="mailto:joffenfondet@gmail.com">joffenfondet@gmail.com</a></p>
+<p style="font-size:.75rem;opacity:.4">Med kjærlighet til Joffen ❤️</p></footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  }), { threshold: .1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body></html>
