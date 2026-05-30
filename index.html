@@ -14,11 +14,11 @@
       --muted:#556070; --border:#D8E2EE; --green-light:#EAF6E7;
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior:smooth; overflow-anchor:none; }
     body { font-family:'Source Sans 3','Open Sans',Arial,sans-serif; background:var(--white); color:var(--dark); line-height:1.6; overflow-x:hidden; }
 
     /* NAV */
-    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
+    nav { position:sticky; top:0; z-index:9999; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
     .nav-logo a { display:block; }
     .nav-logo img { height:44px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
@@ -29,7 +29,7 @@
     /* HAMBURGER */
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:.4rem; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--blue); border-radius:2px; }
-    .mobile-menu { display:none; flex-direction:column; background:var(--white); border-bottom:2px solid var(--border); padding:.5rem 2rem 1rem; }
+    .mobile-menu { display:none; flex-direction:column; background:var(--white); border-bottom:2px solid var(--border); padding:.5rem 2rem 1rem; position:sticky; top:62px; z-index:9998; }
     .mobile-menu a { text-decoration:none; color:var(--dark); font-family:'Montserrat',Arial,sans-serif; font-size:1rem; font-weight:700; padding:.85rem 0; border-bottom:1px solid var(--border); display:block; }
     .mobile-menu a:last-child { border-bottom:none; }
     .mobile-menu.open { display:flex; }
@@ -132,7 +132,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
 <nav>
   <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026"></a></div>
@@ -235,7 +235,7 @@
   <div class="container">
     <div class="section-tag reveal" style="justify-content:center">Følg oss på Instagram</div>
     <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-83e1b4fc-3ad9-4217-b22c-1237b235ebb4" data-elfsight-app-lazy></div>
+    <div class="elfsight-app-83e1b4fc-3ad9-4217-b22c-1237b235ebb4" ></div>
   </div>
 </section>
 
@@ -280,6 +280,10 @@
 </footer>
 
 <script>
+  // Always start at top
+  window.onbeforeunload = function() { window.scrollTo(0,0); };
+  window.onload = function() { window.scrollTo(0,0); };
+
   function tick() {
     const diff = new Date('2026-08-29T09:00:00') - new Date();
     if (diff <= 0) return;
