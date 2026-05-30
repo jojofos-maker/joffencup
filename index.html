@@ -281,9 +281,15 @@
 </footer>
 
 <script>
-  // Always start at top
-  window.onbeforeunload = function() { window.scrollTo(0,0); };
-  window.onload = function() { window.scrollTo(0,0); };
+  // Force scroll to top after everything including Elfsight loads
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  // Also fire after a short delay to override Elfsight
+  setTimeout(() => { window.scrollTo(0, 0); }, 100);
+  setTimeout(() => { window.scrollTo(0, 0); }, 500);
+  setTimeout(() => { window.scrollTo(0, 0); }, 1000);
 
   function tick() {
     const diff = new Date('2026-08-29T09:00:00') - new Date();
