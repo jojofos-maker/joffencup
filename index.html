@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joffencup 2026 – Fotballglede</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,52 +11,55 @@
     :root {
       --blue:#123B6D; --green:#58B947; --red:#E94B4B; --purple:#7A4DBA; --sky:#3AA7E3;
       --dark:#2F343B; --light:#F4F6F8; --white:#FFFFFF;
-      --primary:var(--blue); --accent:var(--green);
-      --off:var(--light); --text:var(--dark); --muted:#556070; --border:#D8E2EE;
-      --green-light:#EAF6E7;
+      --muted:#556070; --border:#D8E2EE; --green-light:#EAF6E7;
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
-    body { font-family:'Source Sans 3','Open Sans',Arial,sans-serif; background:var(--white); color:var(--text); line-height:1.6; overflow-x:hidden; }
+    body { font-family:'Source Sans 3','Open Sans',Arial,sans-serif; background:var(--white); color:var(--dark); line-height:1.6; overflow-x:hidden; }
 
+    /* NAV */
     nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
-    .nav-logo a { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); text-decoration:none; }
+    .nav-logo a { display:block; }
+    .nav-logo img { height:44px; width:auto; display:block; }
     .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
-    .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; transition:color .2s; }
-    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-size:.82rem; font-weight:700; text-decoration:none; padding:.55rem 1.3rem; border-radius:6px; transition:background .2s; }
-    .nav-cta:hover { background:#0e2f57; }
+    .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; font-family:'Montserrat',Arial,sans-serif; transition:color .2s; }
+    .nav-links a:hover { color:var(--blue); }
+    .nav-cta { background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-size:.82rem; font-weight:700; text-decoration:none; padding:.55rem 1.3rem; border-radius:6px; }
+
+    /* HAMBURGER */
+    .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:.4rem; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--blue); border-radius:2px; }
+    .mobile-menu { display:none; flex-direction:column; background:var(--white); border-bottom:2px solid var(--border); padding:.5rem 2rem 1rem; }
+    .mobile-menu a { text-decoration:none; color:var(--dark); font-family:'Montserrat',Arial,sans-serif; font-size:1rem; font-weight:700; padding:.85rem 0; border-bottom:1px solid var(--border); display:block; }
+    .mobile-menu a:last-child { border-bottom:none; }
+    .mobile-menu.open { display:flex; }
 
     /* HERO */
     .hero { display:grid; grid-template-columns:1fr 1fr; min-height:88vh; }
     .hero-left { display:flex; flex-direction:column; justify-content:center; padding:5rem 4rem 5rem 5rem; background:var(--white); }
-    .hero-tag { display:inline-flex; align-items:center; gap:.5rem; background:var(--green-light); color:var(--blue); font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.35rem .9rem; border-radius:20px; margin-bottom:1.8rem; width:fit-content; }
-    .hero h1 { font-family:'Montserrat',Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(3.5rem,7vw,6rem); line-height:.92; color:var(--blue); }
-    .hero h1 .accent { color:var(--green); display:block; }
-    .hero-slogan { margin-top:1.2rem; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:1rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); }
-    .hero-desc { margin-top:.8rem; font-size:1.05rem; line-height:1.75; color:var(--muted); max-width:400px; }
-    .hero-desc strong { color:var(--text); font-weight:600; }
+    .hero-tag { display:inline-flex; align-items:center; gap:.5rem; background:var(--green-light); color:var(--blue); font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.35rem .9rem; border-radius:20px; margin-bottom:1.5rem; width:fit-content; }
+    .hero-logo { width:min(340px,90%); height:auto; margin-bottom:1.2rem; }
+    .hero-slogan { font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.9rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-bottom:.8rem; }
+    .hero-desc { font-size:1.05rem; line-height:1.75; color:var(--muted); max-width:400px; }
+    .hero-desc strong { color:var(--dark); font-weight:600; }
 
-    .hero-facts { display:flex; margin-top:2.5rem; border:1px solid var(--border); border-radius:8px; overflow:hidden; width:fit-content; }
+    .hero-facts { display:flex; margin-top:2rem; border:1px solid var(--border); border-radius:8px; overflow:hidden; width:fit-content; }
     .hero-fact { padding:.9rem 1.5rem; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:.2rem; }
     .hero-fact:last-child { border-right:none; }
     .hero-fact-label { font-family:'Montserrat',Arial,sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
     .hero-fact-val { font-family:'Montserrat',Arial,sans-serif; font-size:1rem; font-weight:800; color:var(--blue); }
 
-    .countdown { display:flex; gap:.6rem; margin-top:2rem; }
+    .countdown { display:flex; gap:.6rem; margin-top:1.5rem; }
     .cd-block { display:flex; flex-direction:column; align-items:center; background:var(--light); border:1px solid var(--border); border-radius:8px; padding:.7rem .9rem; min-width:60px; }
     .cd-num { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.8rem; line-height:1; color:var(--blue); }
     .cd-label { font-family:'Montserrat',Arial,sans-serif; font-size:.55rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:.2rem; }
 
-    .hero-btns { display:flex; gap:.8rem; margin-top:2rem; }
-    .btn-primary { display:inline-block; background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.8rem; border-radius:6px; transition:background .2s, transform .15s; }
-    .btn-primary:hover { background:#0e2f57; transform:translateY(-1px); }
-    .btn-outline { display:inline-block; background:transparent; color:var(--blue); border:2px solid var(--blue); font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.6rem; border-radius:6px; transition:background .2s, color .2s; }
-    .btn-outline:hover { background:var(--blue); color:#fff; }
+    .hero-btns { display:flex; gap:.8rem; margin-top:1.5rem; }
+    .btn-primary { display:inline-block; background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.8rem; border-radius:6px; }
 
-    .hero-right { overflow:hidden; }
+    .hero-right { position:relative; overflow:hidden; }
     .hero-right img { width:100%; height:100%; object-fit:cover; }
-
+    .hero-right::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, rgba(255,255,255,.15) 0%, transparent 40%); }
 
     /* TICKER */
     .ticker { background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.1em; padding:.5rem 0; overflow:hidden; white-space:nowrap; }
@@ -63,99 +67,75 @@
     .ticker-inner span { margin:0 3rem; }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* STATS */
-    .statsbar { background:var(--light); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); }
-    .stat-item { background:var(--light); padding:2rem; text-align:center; }
-    .stat-num { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:3rem; line-height:1; color:var(--blue); }
-    .stat-desc { font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:.4rem; }
-
-    /* KLASSER */
-    #klasser { background:var(--white); }
-    .section-title { font-family:'Montserrat',Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:.97; color:var(--blue); }
+    /* SECTIONS */
+    section { padding:5rem 2.5rem; }
+    .container { max-width:1060px; margin:0 auto; }
     .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
     .section-tag::before { content:''; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
+    .section-title { font-family:'Montserrat',Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:.97; color:var(--blue); }
+
+    /* KLASSER */
     .klasser-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
-    .klasse-card { background:var(--light); border:1.5px solid var(--border); border-radius:10px; padding:2.5rem; border-top:4px solid var(--blue); transition:border-color .25s, box-shadow .25s, transform .25s; }
+    .klasse-card { background:var(--light); border:1.5px solid var(--border); border-radius:10px; padding:2.5rem; border-top:4px solid var(--blue); transition:box-shadow .25s, transform .25s; }
     .klasse-card:hover { box-shadow:0 6px 28px rgba(18,59,109,.1); transform:translateY(-3px); }
     .klasse-emoji { font-size:2rem; margin-bottom:1rem; }
-    .klasse-card h3 { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.5rem; text-transform:uppercase; letter-spacing:.03em; color:var(--blue); margin-bottom:.7rem; }
+    .klasse-card h3 { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.5rem; text-transform:uppercase; color:var(--blue); margin-bottom:.7rem; }
     .klasse-card p { font-size:.97rem; color:var(--muted); line-height:1.7; margin-bottom:1.4rem; }
     .klasse-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
     .klasse-list li { display:flex; align-items:flex-start; gap:.65rem; font-size:.9rem; }
-    .klasse-list li::before { content:'✓'; color:var(--white); font-weight:700; background:var(--green); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:.7rem; flex-shrink:0; margin-top:.1rem; }
+    .klasse-list li::before { content:'✓'; color:#fff; font-weight:700; background:var(--green); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:.7rem; flex-shrink:0; margin-top:.1rem; }
 
     /* FELLESSKAP */
-    #fellesskap { background:var(--blue); }
-    .fellesskap-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    #fellesskap .section-tag { color:rgba(255,255,255,.7); }
-    #fellesskap .section-tag::before { background:rgba(255,255,255,.5); }
-    #fellesskap .section-title { color:#fff; margin-bottom:1rem; }
-    .fellesskap-lead { font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,.8); margin-bottom:.8rem; }
-    .fellesskap-cards { display:flex; flex-direction:column; gap:1rem; }
-    .f-card { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:1.4rem 1.6rem; display:flex; gap:1.1rem; align-items:flex-start; transition:background .2s; }
-    .f-card:hover { background:rgba(255,255,255,.18); }
-    .f-icon { font-size:1.5rem; flex-shrink:0; }
-    .f-card h4 { font-family:'Montserrat',Arial,sans-serif; font-size:.9rem; font-weight:700; color:#fff; margin-bottom:.25rem; }
-    .f-card p { font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.55; }
+    .f-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+    .f-card { background:var(--light); border:1.5px solid var(--border); border-radius:10px; padding:1.4rem 1.6rem; display:flex; gap:1rem; align-items:flex-start; }
+    .f-icon { font-size:1.4rem; flex-shrink:0; }
+    .f-card h4 { font-family:'Montserrat',Arial,sans-serif; font-size:.85rem; font-weight:700; color:var(--blue); margin-bottom:.25rem; }
+    .f-card p { font-size:.83rem; color:var(--muted); line-height:1.55; }
+
+    /* INSTAGRAM */
+    #instagram { background:var(--light); }
 
     /* PÅMELDING */
-    #pamelding { background:var(--light); }
-    .pamelding-box { max-width:640px; margin:0 auto; text-align:center; background:var(--white); border:1.5px solid var(--border); border-radius:12px; padding:4rem 3rem; }
-    .pamelding-facts { display:flex; justify-content:center; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin:1.5rem 0 2rem; }
+    .pamelding-box { max-width:640px; margin:0 auto; text-align:center; background:var(--light); border:1.5px solid var(--border); border-radius:12px; padding:4rem 3rem; }
+    .pamelding-facts { display:flex; justify-content:center; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin:1.5rem 0 2rem; background:var(--white); }
     .pf-item { padding:.9rem 1.5rem; border-right:1px solid var(--border); flex:1; }
     .pf-item:last-child { border-right:none; }
     .pf-label { font-family:'Montserrat',Arial,sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
     .pf-val { font-family:'Montserrat',Arial,sans-serif; font-size:.95rem; font-weight:800; color:var(--blue); margin-top:.2rem; }
     .pamelding-box p { font-size:1rem; color:var(--muted); line-height:1.75; margin-bottom:1.5rem; }
 
-    /* SPONSORER */
-    #sponsorer { background:var(--white); text-align:center; }
-    .sponsor-main { display:inline-flex; align-items:center; gap:1rem; margin-top:2.5rem; background:var(--light); border:2px solid var(--blue); border-radius:10px; padding:1.5rem 3rem; font-family:'Montserrat',Arial,sans-serif; font-size:1.1rem; font-weight:800; color:var(--blue); letter-spacing:.04em; }
-    .sponsor-contact { margin-top:1.5rem; font-size:.88rem; color:var(--muted); }
+    /* SPONSOR */
+    .sponsor-contact { margin-top:1.5rem; font-size:.88rem; color:var(--muted); text-align:center; }
     .sponsor-contact a { color:var(--blue); text-decoration:none; font-weight:600; }
 
+    /* FOOTER */
     footer { background:var(--blue); color:rgba(255,255,255,.6); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
-    .footer-logo { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.3rem; text-transform:uppercase; letter-spacing:.04em; color:#fff; }
-    .footer-logo span { color:var(--green); }
     footer p { font-size:.8rem; line-height:1.9; }
     footer a { color:var(--green); text-decoration:none; }
 
+    /* REVEAL */
     .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
     .reveal.in { opacity:1; transform:translateY(0); }
 
+    /* RESPONSIVE */
     @media(max-width:860px) {
-      .hero { grid-template-columns:1fr; } .hero-right { display:none; } .hero-left { padding:3.5rem 1.5rem; }
-      .klasser-grid, .fellesskap-grid { grid-template-columns:1fr; gap:2rem; } #fellesskap .fellesskap-cards { grid-template-columns:1fr 1fr !important; }
-      .stats-grid { grid-template-columns:1fr 1fr; }
+      .hero { grid-template-columns:1fr; }
+      .hero-right { display:none; }
+      .hero-left { padding:3rem 1.5rem; }
+      .klasser-grid { grid-template-columns:1fr; }
+      .f-cards { grid-template-columns:1fr 1fr; }
       nav .nav-links, nav .nav-cta { display:none; }
+      .hamburger { display:flex; }
+      section { padding:3.5rem 1.5rem; }
       footer { flex-direction:column; text-align:center; }
+      .pamelding-box { padding:2.5rem 1.5rem; }
     }
-
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: .4rem;
-    }
-    .hamburger span { display:block; width:24px; height:2px; background:var(--blue); border-radius:2px; }
-    .mobile-menu {
-      display: none; flex-direction: column;
-      background: var(--white); border-bottom: 2px solid var(--border);
-      padding: .5rem 2rem 1rem;
-    }
-    .mobile-menu a {
-      text-decoration: none; color: var(--text);
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 1rem; font-weight: 700; padding: .85rem 0;
-      border-bottom: 1px solid var(--border); display: block;
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu.open { display: flex; }
-    @media(max-width:860px) { .hamburger { display:flex; } nav .nav-cta { display:none; } }
   </style>
 </head>
 <body>
+
 <nav>
-  <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="height:48px;width:auto;display:block;"></a></div>
+  <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026"></a></div>
   <ul class="nav-links">
     <li><a href="regler.html">Spilleregler</a></li>
     <li><a href="dommere.html">Bli dommer</a></li>
@@ -171,10 +151,11 @@
   <a href="#pamelding" onclick="document.getElementById('mobilemenu').classList.remove('open')">Meld på lag →</a>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-left">
     <div class="hero-tag">Lillesand · 29. august 2026</div>
-    <img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="width:min(380px,90%);height:auto;margin-bottom:1rem;">
+    <img class="hero-logo" src="Joffencup_2026_logo.png" alt="Joffencup 2026">
     <p class="hero-desc">En dag for venner, fotball og glede — til minne om <strong>Joffen</strong>. Alle er velkomne, uansett nivå.</p>
     <div class="hero-facts">
       <div class="hero-fact"><span class="hero-fact-label">Dato</span><span class="hero-fact-val">29. aug 2026</span></div>
@@ -191,201 +172,12 @@
       <a href="#pamelding" class="btn-primary">Meld på lag →</a>
     </div>
   </div>
-  <div class="hero-right" style="display:flex; align-items:center; justify-content:center; background:var(--light); padding:2rem;">
-    <div id="fb-root"></div>
-    <section id="instagram" style="background:var(--light); padding:4rem 2.5rem; border-bottom:1px solid var(--border);">
-  <div class="container">
-    <div class="section-tag" style="justify-content:center; display:inline-flex; margin-bottom:2rem;">Følg oss på Instagram</div>
-    <!-- Elfsight Instagram Feed -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="elfsight-app-83e1b4fc-3ad9-4217-b22c-1237b235ebb4" data-elfsight-app-lazy></div>
-  </div>
-</section> html>
-<html lang="no">
-<head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joffencup 2026 – Fotballglede</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --blue:#123B6D; --green:#58B947; --red:#E94B4B; --purple:#7A4DBA; --sky:#3AA7E3;
-      --dark:#2F343B; --light:#F4F6F8; --white:#FFFFFF;
-      --primary:var(--blue); --accent:var(--green);
-      --off:var(--light); --text:var(--dark); --muted:#556070; --border:#D8E2EE;
-      --green-light:#EAF6E7;
-    }
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'Source Sans 3','Open Sans',Arial,sans-serif; background:var(--white); color:var(--text); line-height:1.6; overflow-x:hidden; }
-
-    nav { position:sticky; top:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2.5rem; background:var(--white); border-bottom:1px solid var(--border); }
-    .nav-logo a { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.4rem; letter-spacing:.04em; text-transform:uppercase; color:var(--blue); text-decoration:none; }
-    .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
-    .nav-links a { text-decoration:none; color:var(--muted); font-size:.88rem; font-weight:600; transition:color .2s; }
-    .nav-links a:hover, .nav-links a.active { color:var(--blue); }
-    .nav-cta { background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-size:.82rem; font-weight:700; text-decoration:none; padding:.55rem 1.3rem; border-radius:6px; transition:background .2s; }
-    .nav-cta:hover { background:#0e2f57; }
-
-    /* HERO */
-    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:88vh; }
-    .hero-left { display:flex; flex-direction:column; justify-content:center; padding:5rem 4rem 5rem 5rem; background:var(--white); }
-    .hero-tag { display:inline-flex; align-items:center; gap:.5rem; background:var(--green-light); color:var(--blue); font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:.35rem .9rem; border-radius:20px; margin-bottom:1.8rem; width:fit-content; }
-    .hero h1 { font-family:'Montserrat',Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(3.5rem,7vw,6rem); line-height:.92; color:var(--blue); }
-    .hero h1 .accent { color:var(--green); display:block; }
-    .hero-slogan { margin-top:1.2rem; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:1rem; letter-spacing:.1em; text-transform:uppercase; color:var(--green); }
-    .hero-desc { margin-top:.8rem; font-size:1.05rem; line-height:1.75; color:var(--muted); max-width:400px; }
-    .hero-desc strong { color:var(--text); font-weight:600; }
-
-    .hero-facts { display:flex; margin-top:2.5rem; border:1px solid var(--border); border-radius:8px; overflow:hidden; width:fit-content; }
-    .hero-fact { padding:.9rem 1.5rem; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:.2rem; }
-    .hero-fact:last-child { border-right:none; }
-    .hero-fact-label { font-family:'Montserrat',Arial,sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-    .hero-fact-val { font-family:'Montserrat',Arial,sans-serif; font-size:1rem; font-weight:800; color:var(--blue); }
-
-    .countdown { display:flex; gap:.6rem; margin-top:2rem; }
-    .cd-block { display:flex; flex-direction:column; align-items:center; background:var(--light); border:1px solid var(--border); border-radius:8px; padding:.7rem .9rem; min-width:60px; }
-    .cd-num { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.8rem; line-height:1; color:var(--blue); }
-    .cd-label { font-family:'Montserrat',Arial,sans-serif; font-size:.55rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:.2rem; }
-
-    .hero-btns { display:flex; gap:.8rem; margin-top:2rem; }
-    .btn-primary { display:inline-block; background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.8rem; border-radius:6px; transition:background .2s, transform .15s; }
-    .btn-primary:hover { background:#0e2f57; transform:translateY(-1px); }
-    .btn-outline { display:inline-block; background:transparent; color:var(--blue); border:2px solid var(--blue); font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; padding:.85rem 1.6rem; border-radius:6px; transition:background .2s, color .2s; }
-    .btn-outline:hover { background:var(--blue); color:#fff; }
-
-    .hero-right { overflow:hidden; }
-    .hero-right img { width:100%; height:100%; object-fit:cover; }
-
-
-    /* TICKER */
-    .ticker { background:var(--blue); color:#fff; font-family:'Montserrat',Arial,sans-serif; font-weight:700; font-size:.82rem; letter-spacing:.1em; padding:.5rem 0; overflow:hidden; white-space:nowrap; }
-    .ticker-inner { display:inline-block; animation:marquee 30s linear infinite; }
-    .ticker-inner span { margin:0 3rem; }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-    /* STATS */
-    .statsbar { background:var(--light); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); }
-    .stat-item { background:var(--light); padding:2rem; text-align:center; }
-    .stat-num { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:3rem; line-height:1; color:var(--blue); }
-    .stat-desc { font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:.4rem; }
-
-    /* KLASSER */
-    #klasser { background:var(--white); }
-    .section-title { font-family:'Montserrat',Arial,sans-serif; font-weight:900; text-transform:uppercase; font-size:clamp(2rem,4vw,3rem); line-height:.97; color:var(--blue); }
-    .section-tag { display:inline-flex; align-items:center; gap:.5rem; color:var(--blue); font-family:'Montserrat',Arial,sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1rem; }
-    .section-tag::before { content:''; display:block; width:18px; height:2px; background:var(--blue); border-radius:2px; }
-    .klasser-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
-    .klasse-card { background:var(--light); border:1.5px solid var(--border); border-radius:10px; padding:2.5rem; border-top:4px solid var(--blue); transition:border-color .25s, box-shadow .25s, transform .25s; }
-    .klasse-card:hover { box-shadow:0 6px 28px rgba(18,59,109,.1); transform:translateY(-3px); }
-    .klasse-emoji { font-size:2rem; margin-bottom:1rem; }
-    .klasse-card h3 { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.5rem; text-transform:uppercase; letter-spacing:.03em; color:var(--blue); margin-bottom:.7rem; }
-    .klasse-card p { font-size:.97rem; color:var(--muted); line-height:1.7; margin-bottom:1.4rem; }
-    .klasse-list { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
-    .klasse-list li { display:flex; align-items:flex-start; gap:.65rem; font-size:.9rem; }
-    .klasse-list li::before { content:'✓'; color:var(--white); font-weight:700; background:var(--green); border-radius:50%; width:20px; height:20px; display:flex; align-items:center; justify-content:center; font-size:.7rem; flex-shrink:0; margin-top:.1rem; }
-
-    /* FELLESSKAP */
-    #fellesskap { background:var(--blue); }
-    .fellesskap-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    #fellesskap .section-tag { color:rgba(255,255,255,.7); }
-    #fellesskap .section-tag::before { background:rgba(255,255,255,.5); }
-    #fellesskap .section-title { color:#fff; margin-bottom:1rem; }
-    .fellesskap-lead { font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,.8); margin-bottom:.8rem; }
-    .fellesskap-cards { display:flex; flex-direction:column; gap:1rem; }
-    .f-card { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:1.4rem 1.6rem; display:flex; gap:1.1rem; align-items:flex-start; transition:background .2s; }
-    .f-card:hover { background:rgba(255,255,255,.18); }
-    .f-icon { font-size:1.5rem; flex-shrink:0; }
-    .f-card h4 { font-family:'Montserrat',Arial,sans-serif; font-size:.9rem; font-weight:700; color:#fff; margin-bottom:.25rem; }
-    .f-card p { font-size:.87rem; color:rgba(255,255,255,.75); line-height:1.55; }
-
-    /* PÅMELDING */
-    #pamelding { background:var(--light); }
-    .pamelding-box { max-width:640px; margin:0 auto; text-align:center; background:var(--white); border:1.5px solid var(--border); border-radius:12px; padding:4rem 3rem; }
-    .pamelding-facts { display:flex; justify-content:center; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin:1.5rem 0 2rem; }
-    .pf-item { padding:.9rem 1.5rem; border-right:1px solid var(--border); flex:1; }
-    .pf-item:last-child { border-right:none; }
-    .pf-label { font-family:'Montserrat',Arial,sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-    .pf-val { font-family:'Montserrat',Arial,sans-serif; font-size:.95rem; font-weight:800; color:var(--blue); margin-top:.2rem; }
-    .pamelding-box p { font-size:1rem; color:var(--muted); line-height:1.75; margin-bottom:1.5rem; }
-
-    /* SPONSORER */
-    #sponsorer { background:var(--white); text-align:center; }
-    .sponsor-main { display:inline-flex; align-items:center; gap:1rem; margin-top:2.5rem; background:var(--light); border:2px solid var(--blue); border-radius:10px; padding:1.5rem 3rem; font-family:'Montserrat',Arial,sans-serif; font-size:1.1rem; font-weight:800; color:var(--blue); letter-spacing:.04em; }
-    .sponsor-contact { margin-top:1.5rem; font-size:.88rem; color:var(--muted); }
-    .sponsor-contact a { color:var(--blue); text-decoration:none; font-weight:600; }
-
-    footer { background:var(--blue); color:rgba(255,255,255,.6); padding:2.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; }
-    .footer-logo { font-family:'Montserrat',Arial,sans-serif; font-weight:900; font-size:1.3rem; text-transform:uppercase; letter-spacing:.04em; color:#fff; }
-    .footer-logo span { color:var(--green); }
-    footer p { font-size:.8rem; line-height:1.9; }
-    footer a { color:var(--green); text-decoration:none; }
-
-    .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
-    .reveal.in { opacity:1; transform:translateY(0); }
-
-    @media(max-width:860px) {
-      .hero { grid-template-columns:1fr; } .hero-right { display:none; } .hero-left { padding:3.5rem 1.5rem; }
-      .klasser-grid, .fellesskap-grid { grid-template-columns:1fr; gap:2rem; } #fellesskap .fellesskap-cards { grid-template-columns:1fr 1fr !important; }
-      .stats-grid { grid-template-columns:1fr 1fr; }
-      nav .nav-links, nav .nav-cta { display:none; }
-      footer { flex-direction:column; text-align:center; }
-    }
-  </style>
-</head>
-<body>
-<nav>
-  <div class="nav-logo"><a href="index.html"><img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="height:48px;width:auto;display:block;"></a></div>
-  <ul class="nav-links">
-    <li><a href="regler.html">Spilleregler</a></li>
-    <li><a href="dommere.html">Bli dommer</a></li>
-  </ul>
-  <a href="#pamelding" class="nav-cta">Meld på lag →</a>
-</nav>
-
-<div class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Lillesand · 29. august 2026</div>
-    <img src="Joffencup_2026_logo.png" alt="Joffencup 2026" style="width:min(380px,90%);height:auto;margin-bottom:1rem;">
-    <p class="hero-desc">En dag for venner, fotball og glede — til minne om <strong>Joffen</strong>. Alle er velkomne, uansett nivå.</p>
-    <div class="hero-facts">
-      <div class="hero-fact"><span class="hero-fact-label">Dato</span><span class="hero-fact-val">29. aug 2026</span></div>
-      <div class="hero-fact"><span class="hero-fact-label">Sted</span><span class="hero-fact-val">Lillesand</span></div>
-      <div class="hero-fact"><span class="hero-fact-label">Format</span><span class="hero-fact-val">5 mot 5</span></div>
-    </div>
-    <div class="countdown">
-      <div class="cd-block"><span class="cd-num" id="cd-d">—</span><span class="cd-label">Dager</span></div>
-      <div class="cd-block"><span class="cd-num" id="cd-h">—</span><span class="cd-label">Timer</span></div>
-      <div class="cd-block"><span class="cd-num" id="cd-m">—</span><span class="cd-label">Min</span></div>
-      <div class="cd-block"><span class="cd-num" id="cd-s">—</span><span class="cd-label">Sek</span></div>
-    </div>
-    <div class="hero-btns">
-      <a href="#pamelding" class="btn-primary">Meld på lag →</a>
-    </div>
-  </div>
-  <div class="hero-right" style="display:flex; align-items:center; justify-content:center; background:var(--light); padding:2rem;">
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-      src="https://connect.facebook.net/nb_NO/sdk.js#xfbml=1&version=v19.0">
-    </script>
-    <div class="fb-page"
-      data-href="https://www.facebook.com/joffenfondet"
-      data-tabs="timeline"
-      data-width="500"
-      data-height="600"
-      data-small-header="true"
-      data-adapt-container-width="true"
-      data-hide-cover="false"
-      data-show-facepile="false">
-      <blockquote cite="https://www.facebook.com/joffenfondet" class="fb-xfbml-parse-ignore">
-        <a href="https://www.facebook.com/joffenfondet">Joffenfondet</a>
-      </blockquote>
-    </div>
+  <div class="hero-right">
+    <img src="https://drive.google.com/thumbnail?id=1dXq9umQGHKxFyzrVK8djQ9yT0GxBBx-s&sz=w1400" alt="Joffencup" />
   </div>
 </div>
 
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
     <span>⚽ Joffencup 2026</span><span>= Fotballglede</span><span>📅 29. august · Lillesand</span>
@@ -395,9 +187,8 @@
   </div>
 </div>
 
-
-
-<section id="klasser">
+<!-- KLASSER -->
+<section id="klasser" style="background:var(--white)">
   <div class="container">
     <div class="reveal"><div class="section-tag">Turneringsklasser</div><h2 class="section-title">Hvem kan delta?</h2></div>
     <div class="klasser-grid">
@@ -408,7 +199,7 @@
         <ul class="klasse-list">
           <li>Minst én dame på banen til enhver tid</li>
           <li>5 mot 5 på kunstgress</li>
-          <li>18 års grense — unntak tillates, men gjennomsnittsalderen på laget må være over 18 år</li>
+          <li>18 års grense — unntak tillates, men gjennomsnittsalderen må være over 18</li>
           <li>Fokus på glede og deltakelse</li>
         </ul>
       </div>
@@ -419,7 +210,7 @@
         <ul class="klasse-list">
           <li>Rene herrelag</li>
           <li>5 mot 5 på kunstgress</li>
-          <li>18 års grense — unntak tillates, men gjennomsnittsalderen på laget må være over 18 år</li>
+          <li>18 års grense — unntak tillates, men gjennomsnittsalderen må være over 18</li>
           <li>God stemning, rettferdig spill</li>
         </ul>
       </div>
@@ -427,18 +218,29 @@
   </div>
 </section>
 
-<section id="fellesskap">
+<!-- FELLESSKAP -->
+<section style="background:var(--light)">
   <div class="container">
-    <div class="fellesskap-cards reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;">
+    <div class="f-cards reveal">
       <div class="f-card"><div class="f-icon">⚽</div><div><h4>Fotball for alle nivåer</h4><p>Hobbyformat som passer alle, uansett om støvlene har stått lenge.</p></div></div>
-      <div class="f-card"><div class="f-icon">🤝</div><div><h4>Tradisjon siden 2019</h4><p>Hvert år samles venner og familie til en dag som alltid etterlater gode minner.</p></div></div>
+      <div class="f-card"><div class="f-icon">🤝</div><div><h4>Tradisjon siden 2019</h4><p>Hvert år samles venner og familie til en dag fylt med gode minner.</p></div></div>
       <div class="f-card"><div class="f-icon">🎉</div><div><h4>Afterparty på kvelden</h4><p>Middag og musikk etter cupen for alle som vil feire og minnes.</p></div></div>
       <div class="f-card"><div class="f-icon">❤️</div><div><h4>Et fond med mening</h4><p>Overskuddet bærer Joffens arv videre gjennom Joffenfondet.</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="pamelding">
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="container">
+    <div class="section-tag reveal" style="justify-content:center">Følg oss på Instagram</div>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-83e1b4fc-3ad9-4217-b22c-1237b235ebb4" data-elfsight-app-lazy></div>
+  </div>
+</section>
+
+<!-- PÅMELDING -->
+<section id="pamelding" style="background:var(--white)">
   <div class="container">
     <div class="pamelding-box reveal">
       <div class="section-tag" style="justify-content:center">Bli med!</div>
@@ -454,21 +256,24 @@
   </div>
 </section>
 
-<section id="sponsorer">
+<!-- SPONSOR -->
+<section style="background:var(--light); text-align:center;">
   <div class="container">
     <div class="section-tag reveal" style="justify-content:center">Hovedsamarbeidspartner 2026</div>
-    <div style="text-align:center; margin-top:1.5rem;">
+    <div style="margin-top:1.5rem;">
       <a href="https://sjobua.no" target="_blank">
-        <img src="sjobua_logo.png" alt="Sjøbua Restaurant & Bar" class="reveal"
-             style="height:120px; width:auto; display:inline-block;">
+        <img src="sjobua_logo.png" alt="Sjøbua Restaurant & Bar" class="reveal" style="height:120px; width:auto; display:inline-block;">
       </a>
     </div>
     <p class="sponsor-contact reveal">Interessert i å bli samarbeidspartner? <a href="mailto:joffenfondet@gmail.com">joffenfondet@gmail.com</a></p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><a href="https://www.joffenfondet.org" target="_blank"><img src="Fondslogo_stor.jpg" alt="Joffenfondet.org" style="height:52px;width:auto;display:block;border-radius:4px;"></a></div>
+  <a href="https://www.joffenfondet.org" target="_blank">
+    <img src="Fondslogo_stor.jpg" alt="Joffenfondet.org" style="height:52px; width:auto; border-radius:4px;">
+  </a>
   <p>Arrangert av Joffenfondet · Org.nr 922 343 853<br>
   <a href="https://www.joffenfondet.org">joffenfondet.org</a> · <a href="mailto:joffenfondet@gmail.com">joffenfondet@gmail.com</a></p>
   <p style="font-size:.75rem;opacity:.4">Med kjærlighet til Joffen ❤️</p>
@@ -484,7 +289,9 @@
     document.getElementById('cd-s').textContent = String(Math.floor(diff%60000/1000)).padStart(2,'0');
   }
   tick(); setInterval(tick, 1000);
-  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:.1});
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  }), { threshold:.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
