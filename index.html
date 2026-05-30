@@ -131,6 +131,26 @@
       nav .nav-links, nav .nav-cta { display:none; }
       footer { flex-direction:column; text-align:center; }
     }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .4rem;
+    }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--blue); border-radius:2px; }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: var(--white); border-bottom: 2px solid var(--border);
+      padding: .5rem 2rem 1rem;
+    }
+    .mobile-menu a {
+      text-decoration: none; color: var(--text);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1rem; font-weight: 700; padding: .85rem 0;
+      border-bottom: 1px solid var(--border); display: block;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+    @media(max-width:860px) { .hamburger { display:flex; } nav .nav-cta { display:none; } }
   </style>
 </head>
 <body>
@@ -141,7 +161,15 @@
     <li><a href="dommere.html">Bli dommer</a></li>
   </ul>
   <a href="#pamelding" class="nav-cta">Meld på lag →</a>
+  <button class="hamburger" onclick="document.getElementById('mobilemenu').classList.toggle('open')" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobilemenu">
+  <a href="regler.html">Spilleregler</a>
+  <a href="dommere.html">Bli dommer</a>
+  <a href="#pamelding" onclick="document.getElementById('mobilemenu').classList.remove('open')">Meld på lag →</a>
+</div>
 
 <div class="hero">
   <div class="hero-left">
